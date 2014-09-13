@@ -9,10 +9,11 @@ var express = require('express'),
     from = process.env.TWILIO_FROM,
     redisURL = url.parse(process.env.REDISCLOUD_URL),
     rclient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true}),
-    rclient.auth(redisURL.auth.split(':')[1]),
     app     = express();
 
-app.set('port', (process.env.PORT || 5000))
+
+rclient.auth(redisURL.auth.split(':')[1]);
+app.set('port', (process.env.PORT || 5000));
 
 app.get('/check', function(req, res){
     url = 'http://www.bitsundso.de/400/';
