@@ -3,6 +3,7 @@ var express = require('express'),
     cheerio = require('cheerio'),
     redis   = require('redis'),
     twilio  = require('twilio'),
+    url     = require('url'),
     tclient = new twilio.RestClient(
         process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN),
     recipients = process.env.RECIPIENTS.split(','),
