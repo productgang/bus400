@@ -7,7 +7,9 @@ var express = require('express'),
         process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN),
     recipients = process.env.RECIPIENTS.split(','),
     from = process.env.TWILIO_FROM,
-    rclient = redis.createClient(),
+    redisURL = url.parse(process.env.REDISCLOUD_URL),
+    rclient = redis.createClient(redisURL.port, redisURL.hostname, {no_ready_check: true}),
+    rclient.auth(redisURL.auth.split(':')[1]),
     app     = express();
 
 app.set('port', (process.env.PORT || 5000))
