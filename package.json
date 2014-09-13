@@ -1,0 +1,14 @@
+{
+  "name"         : "bus400",
+  "version"      : "0.0.1",
+  "description"  : "Check if the Bits und so #400 tickets are available yet",
+  "main"         : "server.js",
+  "author"       : "Lukas Klein",
+  "dependencies" : {
+    "express"    : "latest",
+    "request"    : "latest",
+    "cheerio"    : "latest",
+    "redis"      : "latest",
+    "twilio"     : "latest"
+  }
+}
